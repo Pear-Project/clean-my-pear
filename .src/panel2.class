@@ -1,0 +1,8 @@
+' Gambas class file
+
+
+Public Sub lbl_title_details_MouseDown()
+
+  
+
+End

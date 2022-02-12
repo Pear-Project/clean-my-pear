@@ -1,0 +1,26 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,63,70)
+  { pn_welcome Panel
+    MoveScaled(0,0,63,70)
+    { lbl_welcome_alt Label
+      MoveScaled(7,48,50,6)
+      Font = Font["Bold,+2"]
+      Text = ("Start with a nice scan to your pearintosh")
+    }
+    { img_logo PictureBox
+      MoveScaled(8,0,45,45)
+      Picture = Picture["icon.png"]
+      Mode = PictureBox.Contain
+    }
+    { lbl_welcome Label
+      MoveScaled(0,43,62,6)
+      Font = Font["Bold,+7"]
+      Text = ("Welcome to CleanMyPear Lite")
+    }
+    { scan_welcome Button
+      MoveScaled(13,66,16,4)
+    }
+  }
+}

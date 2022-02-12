@@ -1,0 +1,8 @@
+' Gambas module file
+
+Public rubbish_size As String
+  
+Public Sub get_size()        'getting the rubbish size for display
+  Shell "du -hs ~/.local/share/Trash | tr -d 'abcdefghijklmnopqrstuvwxyzABCDEFHIJLNOPQRSTUVWXYZ/.' |tr -d '\n'" To rubbish_size 'trimming the shell output and sending it clean to the string var.
+  Print "Actual rubbish size is " & rubbish_size 'print for debug (yea, I m that type of guy who uses Print as debugger xdd)
+End

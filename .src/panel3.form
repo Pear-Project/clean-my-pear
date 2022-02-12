@@ -1,0 +1,84 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,81,75)
+  { pn_smart_scan Panel
+    MoveScaled(0,0,80.8571,74.8571)
+    Visible = False
+    { Spinner2 Spinner
+      MoveScaled(36,51,4,4)
+    }
+    { Spinner1 Spinner
+      MoveScaled(6,51,4,4)
+    }
+    { report_disk Label
+      MoveScaled(4,49,12,4)
+      Visible = False
+      Font = Font["+1"]
+      Text = ("Cleanup")
+    }
+    { lbl_title_alt3 Label
+      MoveScaled(33,45,12,7)
+      Font = Font["+1"]
+      Text = ("Protection")
+    }
+    { report_protection Label
+      MoveScaled(34,49,12,4)
+      Visible = False
+      Font = Font["+1"]
+      Text = ("Cleanup")
+    }
+    { report_speed Label
+      MoveScaled(67,49,12,4)
+      Visible = False
+      Font = Font["+1"]
+      Text = ("Cleanup")
+    }
+    { lbl_title_alt4 Label
+      MoveScaled(68,46,8,5)
+      Font = Font["+1"]
+      Text = ("Speed")
+    }
+    { lbl_title_alt2 Label
+      MoveScaled(4,45,12,6)
+      Font = Font["+1"]
+      Text = ("Cleanup")
+    }
+    { img_disk PictureBox
+      MoveScaled(0,24,18,18)
+      Picture = Picture["disk.png"]
+      Alignment = Align.Center
+      Mode = PictureBox.Contain
+    }
+    { img_disk3 PictureBox
+      MoveScaled(62,25,18,18)
+      Picture = Picture["speed.png"]
+      Alignment = Align.Center
+      Mode = PictureBox.Contain
+    }
+    { lbl_title_alt Label
+      MoveScaled(15,4,43,6)
+      Font = Font["+1"]
+      Text = ("This shouldn't take much time. Be patient")
+    }
+    { lbl_looking Label
+      MoveScaled(23,0,31,6)
+      Font = Font["Bold,+5"]
+      Text = ("Looking at it ") & "..."
+    }
+    { lbl_title_alt5 Label
+      MoveScaled(44,70,12,4)
+      Font = Font["Bold,-1"]
+      Text = ("21.6 GB")
+    }
+    { img_disk2 PictureBox
+      MoveScaled(29,24,18,18)
+      Picture = Picture["secure.png"]
+      Alignment = Align.Center
+      Mode = PictureBox.Contain
+    }
+    { Spinner3 Spinner
+      MoveScaled(69,51,4,4)
+    }
+  }
+}

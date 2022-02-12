@@ -1,0 +1,400 @@
+' Gambas class file
+
+Public active As String 'Possible states of this string: sys_junk, rubbish, apt-manager, malware, space_lens, big_files, updates
+
+Public Sub Form_Open()              'when the form is shown,
+  lbl_smart_scan.Enabled = False    'disable the Smart Scan button from the siedebar
+  img_smart_scan.Enabled = False    '^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+End                                 'done
+
+Public Sub scan_welcome_Click()
+
+  pn_welcome.Visible = False                                                    'disabling the welcome panel, 'cause the user pressed some button
+  pn_smart_scan.Visible = True                                                  'making the Smart Scan panel visible
+  pn_running.Visible = False                                                    'making universal panel hidden
+
+  lbl_smart_scan.Enabled = True                                                 'enabling the Smart Scan button
+  img_smart_scan.Enabled = True                                                 '^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+  Spinner1.Show                                                                 'showing the spinners
+  Spinner2.Show                                                                 'showing the spinners
+  Spinner3.Show                                                                 'showing the spinners
+  Spinner1.Start                                                                'starting the spinners
+  Spinner2.Start                                                                'starting the spinners
+  Spinner3.Start                                                                'starting the spinners
+  Wait 1                                                                        'wait one seccond(nothing to do with the actual code)
+  Spinner1.Hide                                                                 'hiding the spinners
+  report_disk.Text = "2000 PB"                                                  'reporting the amount of junk that found
+  report_disk.Visible = True                                                    'making the disk report visible
+  Wait 1                                                                        'waiting another second:)
+  report_protection.Visible = True                                              'making the protection report visible
+  report_protection.Text = "Protected"                                          'making protection report value "Protected"(placeholder for later versions of CleanMyPear)
+  Spinner2.Hide                                                                 'hiding the spinners
+  report_speed.Visible = True                                                   'making Speed report visible
+  report_speed.Text = "Normal"                                                  'making speed report value "Protected"(placeholder for later versions of CleanMyPear)
+  Spinner3.Hide                                                                 'hiding the spinners
+  
+  rubbish_bin_module.get_size()                                                 'calling get_size() function from rubbish_bin_module.module
+  lbl_main_report.Text = "Found rubbish: " & rubbish_bin_module.rubbish_size    'displaying the rubbish size from the bin
+End                                                                             'ending Scan function(on click action)
+
+Public Sub lbl_smart_scan_MouseDown()
+
+  pn_welcome.Visible = False                                                    'hiding the Welcome panel
+  pn_smart_scan.Visible = True                                                  'showing the smart scan panel
+  pn_running.Visible = False                                                    'hiding the universal panel
+  
+End
+
+Public Sub img_smart_scan_MouseDown()
+
+  pn_welcome.Visible = False                                                    'hiding the Welcome panel
+  pn_smart_scan.Visible = True                                                  'showing the smart scan panel
+  pn_running.Visible = False                                                    'hiding the universal panel
+  
+End
+
+Public Sub lbl_sys_junk_MouseDown()
+
+  pn_welcome.Visible = False                                                    'hiding the Welcome panel
+  pn_smart_scan.Visible = False                                                 'hiding the smart scan panel
+  pn_running.Visible = True                                                     'showing the universal panel
+  
+  PictureBox1.Picture = Picture[" "]                                            'setting Big icon(right part of the screen, there is an icon placeholder)
+  PictureBox2.Picture = Picture[" "]                                            'next to the Sidebar, there are 2 icons, this is the first
+  PictureBox3.Picture = Picture[" "]                                            '^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^, this is the second
+  
+  lbl_title.Text = "System Junk"                                                                          'setting the big title
+  lbl_title_alt6.Text = "Clean your system to achieve maximum performance\nand reclaim free space :p"     '^^^^^^^^^^^ subtitle
+  lbl_title_details.Text = "Optimizes your system"                                                        '^^^^^^^^^^^ first explication title
+  lbl_details.Text = "Removes your temp files to free up space\nand smoothen your Pear's performance."    '^^^^^^^^^^^^^^^^^ description
+  lbl_title_details2.Text = "Tries to resolve errors"                                                     '^^^^^^^^^^^ second explication title
+  lbl_details2.Text = "Gets rid of various broken items thet may\nresult in wrong application behaviour." '^^^^^^^^^^^^^^^^^^ description
+
+  active = "sys_junk"                                                           'setting the active 
+
+End
+
+Public Sub img_sys_junk_MouseDown()
+
+  pn_welcome.Visible = False
+  pn_smart_scan.Visible = False
+  pn_running.Visible = True
+
+  PictureBox1.Picture = Picture[" "]
+  PictureBox2.Picture = Picture[" "]
+  PictureBox3.Picture = Picture[" "]
+  
+  lbl_title.Text = "System Junk"
+  lbl_title_alt6.Text = "Clean your system to achieve maximum performance\nand reclaim free space :p"
+  lbl_title_details.Text = "Optimizes your system"
+  lbl_details.Text = "Removes your temp files to free up space\nand smoothen your Pear's performance."
+  lbl_title_details2.Text = "Tries to resolve errors"
+  lbl_details2.Text = "Gets rid of various broken items thet may\nresult in wrong application behaviour."
+
+  active = "sys_junk"
+
+End
+
+Public Sub img_rubbish_MouseDown()
+
+  pn_welcome.Visible = False
+  pn_smart_scan.Visible = False
+  pn_running.Visible = True
+
+  PictureBox1.Picture = Picture["rubbish.png"]
+  PictureBox2.Picture = Picture["small_rubbish.png"]
+  PictureBox3.Picture = Picture["pinder.png"]
+  
+  lbl_title.Text = "Rubbish Bins"
+  lbl_title_alt6.Text = "Empty all of the available Rubbish Bins\non your pearintosh."
+  lbl_title_details.Text = "Empties all rubbish at once"
+  lbl_details.Text = "There is no need to browse all disks and\napps to look for their rubbish bins."
+  lbl_title_details2.Text = "Avoid unexpected errors"
+  lbl_details2.Text = "If you have your memory nearly full,\nthere are chances to have system errors."
+
+  lbl_main_report.Hide
+
+  active = "rubbish"
+
+End
+
+Public Sub lbl_rubbish_MouseDown()
+
+  pn_welcome.Visible = False
+  pn_smart_scan.Visible = False
+  pn_running.Visible = True
+
+  PictureBox1.Picture = Picture["rubbish.png"]
+  PictureBox2.Picture = Picture["small_rubbish.png"]
+  PictureBox3.Picture = Picture["pinder.png"]
+  
+  lbl_title.Text = "Rubbish Bins"
+  lbl_title_alt6.Text = "Empty all of the available Rubbish Bins\non your pearintosh."
+  lbl_title_details.Text = "Empties all rubbish at once"
+  lbl_details.Text = "There is no need to browse all disks and\napps to look for their rubbish bins."
+  lbl_title_details2.Text = "Avoid unexpected errors"
+  lbl_details2.Text = "If you have your memory nearly full,\nthere are chances to have system errors."
+
+  lbl_main_report.Hide
+
+  active = "rubbish"
+
+End
+
+Public Sub img_packages_MouseDown()
+
+  pn_welcome.Visible = False
+  pn_smart_scan.Visible = False
+  pn_running.Visible = True
+
+  PictureBox1.Picture = Picture["apps.png"]
+  PictureBox2.Picture = Picture["app_shredder.png"]
+  PictureBox3.Picture = Picture["bricks.png"]
+  
+  lbl_title.Text = "APT Package manager"
+  lbl_title_alt6.Text = "Clean and update all of your repos"
+  lbl_title_details.Text = "Automatic clean"
+  lbl_details.Text = "You can clean the repositories all in\none click"
+  lbl_title_details2.Text = "Update old packages"
+  lbl_details2.Text = "Sometimes, your Applications store\ngets old. It's time to update it!"
+
+  lbl_main_report.Hide
+
+  active = "apt-manager"
+
+End
+
+Public Sub lbl_packages_MouseDown()
+
+  pn_welcome.Visible = False
+  pn_smart_scan.Visible = False
+  pn_running.Visible = True
+
+  PictureBox1.Picture = Picture["apps.png"]
+  PictureBox2.Picture = Picture["app_shredder.png"]
+  PictureBox3.Picture = Picture["bricks.png"]
+  
+  lbl_title.Text = "APT Package manager"
+  lbl_title_alt6.Text = "Clean and update all of your repos"
+  lbl_title_details.Text = "Automatic clean"
+  lbl_details.Text = "You can clean the repositories all in\none click"
+  lbl_title_details2.Text = "Update old packages"
+  lbl_details2.Text = "Sometimes, your Applications store\ngets old. It's time to update it!"
+
+  lbl_main_report.Hide
+
+  active = "apt-manager"
+
+End
+
+Public Sub img_malware_MouseDown()
+
+  pn_welcome.Visible = False
+  pn_smart_scan.Visible = False
+  pn_running.Visible = True
+
+  PictureBox1.Picture = Picture["malware-big.png"]
+  PictureBox2.Picture = Picture["bug.png"]
+  PictureBox3.Picture = Picture["shield.png"]
+
+  lbl_title.Text = "Malware removal :)"
+  lbl_title_alt6.Text = "This screenis useless, cause it's hard to infect\na linux distro:))"
+  lbl_title_details.Text = "You are using a Linux distro"
+  lbl_details.Text = "It's very unlikely to get infected\nwhile using a linux distro."
+  lbl_title_details2.Text = "Linux means protection"
+  lbl_details2.Text = "You can browse the web free but keep\nin mind, do not run weird untrusted scripts"
+
+  btn_take_action.Enabled = False
+  lbl_main_report.Hide
+
+  active = "malware"
+  
+End
+
+Public Sub lbl_malware_remove_MouseDown()
+
+  pn_welcome.Visible = False
+  pn_smart_scan.Visible = False
+  pn_running.Visible = True
+
+  PictureBox1.Picture = Picture["malware-big.png"]
+  PictureBox2.Picture = Picture["bug.png"]
+  PictureBox3.Picture = Picture["shield.png"]
+
+  lbl_title.Text = "Malware removal :)"
+  lbl_title_alt6.Text = "This screenis useless, cause it's hard to infect\na linux distro:))"
+  lbl_title_details.Text = "You are using a Linux distro"
+  lbl_details.Text = "It's very unlikely to get infected\nwhile using a linux distro."
+  lbl_title_details2.Text = "Linux means protection"
+  lbl_details2.Text = "You can browse the web free but keep\nin mind, do not run weird untrusted scripts"
+
+  btn_take_action.Enabled = False
+  lbl_main_report.Hide
+
+  active = "malware"
+  
+End
+
+Public Sub img_space_lens_MouseDown()
+
+  pn_welcome.Visible = False
+  pn_smart_scan.Visible = False
+  pn_running.Visible = True
+
+  PictureBox1.Picture = Picture["space-lens1.png"]
+  PictureBox2.Picture = Picture["space-lens.png"]
+  PictureBox3.Picture = Picture["spaceship_woah.png"]
+
+  lbl_title.Text = "Space Lens"
+  lbl_title_alt6.Text = "Show your biggest files from your home folder"
+  lbl_title_details.Text = "Instant size overview"
+  lbl_details.Text = "Browse your storage while seeing what's\ntaking up the most space"
+  lbl_title_details2.Text = "This action will be quick"
+  lbl_details2.Text = "This app uses GNU Coreutils to show\ninformations about your system."
+  
+  lbl_main_report.Hide
+  
+  active = "space_lens"
+  
+End
+
+Public Sub lbl_space_lens_MouseDown()
+
+  pn_welcome.Visible = False
+  pn_smart_scan.Visible = False
+  pn_running.Visible = True
+
+  PictureBox1.Picture = Picture["space-lens1.png"]
+  PictureBox2.Picture = Picture["space-lens.png"]
+  PictureBox3.Picture = Picture["spaceship_woah.png"]
+
+  lbl_title.Text = "Space Lens"
+  lbl_title_alt6.Text = "Show your biggest files from your home folder"
+  lbl_title_details.Text = "Instant size overview"
+  lbl_details.Text = "Browse your storage while seeing what's\ntaking up the most space"
+  lbl_title_details2.Text = "This action will be quick"
+  lbl_details2.Text = "This app uses GNU Coreutils to show\ninformations about your system."
+  
+  lbl_main_report.Hide
+  
+  active = "space_lens"
+
+End
+
+Public Sub img_big_files_MouseDown()
+
+  pn_welcome.Visible = False
+  pn_smart_scan.Visible = False
+  pn_running.Visible = True
+
+  PictureBox1.Picture = Picture["large_files.png"]
+  PictureBox2.Picture = Picture["glasses-icon.png"]
+  PictureBox3.Picture = Picture["settings_icon.png"]
+
+  lbl_title.Text = "Large & Old Files"
+  lbl_title_alt6.Text = "Locate and see big files/folders in your filesystem"
+  lbl_title_details.Text = "Finds your file graveyards"
+  lbl_details.Text = "This module is coming soon, don't worry"
+  lbl_title_details2.Text = "Easily sorts through your files"
+  lbl_details2.Text = "This module is coming soon"
+  
+  lbl_main_report.Hide
+  
+  active = "big_files"
+
+End
+
+Public Sub lbl_big_files_MouseDown()
+
+  pn_welcome.Visible = False
+  pn_smart_scan.Visible = False
+  pn_running.Visible = True
+
+  PictureBox1.Picture = Picture["large_files.png"]
+  PictureBox2.Picture = Picture["glasses-icon.png"]
+  PictureBox3.Picture = Picture["settings_icon.png"]
+
+  lbl_title.Text = "Large & Old Files"
+  lbl_title_alt6.Text = "Locate and see big files/folders in your filesystem"
+  lbl_title_details.Text = "Finds your file graveyards"
+  lbl_details.Text = "This module is coming soon, don't worry"
+  lbl_title_details2.Text = "Easily sorts through your files"
+  lbl_details2.Text = "This module is coming soon"
+  
+  lbl_main_report.Hide
+  
+  active = "big_files"
+
+End
+
+Public Sub img_updates_MouseDown()
+
+  pn_welcome.Visible = False
+  pn_smart_scan.Visible = False
+  pn_running.Visible = True
+
+  PictureBox1.Picture = Picture["updater.png"]
+  PictureBox2.Picture = Picture["latest_version.png"]
+  PictureBox3.Picture = Picture["compatible.png"]
+  
+  lbl_title.Text = "Keep your pearintosh updated"
+  lbl_title_alt6.Text = "Search, fetch and isntall latest updates for your pearOS System"
+  lbl_title_details.Text = "Downloads updates from updates server"
+  lbl_details.Text = "Updates server is located in Germany"
+  lbl_title_details2.Text = "Automatically installs the update"
+  lbl_details2.Text = "Will open the PEXT Installer if\nthere are updates available."
+  
+  lbl_main_report.Hide
+  
+  active = "updates"
+
+End
+
+Public Sub lbl_updates_MouseDown()
+
+  pn_welcome.Visible = False
+  pn_smart_scan.Visible = False
+  pn_running.Visible = True
+
+  PictureBox1.Picture = Picture["updater.png"]
+  PictureBox2.Picture = Picture["latest_version.png"]
+  PictureBox3.Picture = Picture["compatible.png"]
+  
+  lbl_title.Text = "Keep your pearintosh updated"
+  lbl_title_alt6.Text = "Search, fetch and isntall latest updates for your pearOS System"
+  lbl_title_details.Text = "Downloads updates from updates server"
+  lbl_details.Text = "Updates server is located in Germany"
+  lbl_title_details2.Text = "Automatically installs the update"
+  lbl_details2.Text = "Will open the PEXT Installer if\nthere are updates available."
+  
+  lbl_main_report.Hide
+  
+  active = "updates"
+
+End
+
+'''''''''''''''''''''''369 lines of code just for the ui:)''''''Time to make the Universal "Take Action" button...'''''''''''''''''
+
+Public Sub btn_take_action_Click() 'welcome to the universal button:)) it will do actions, depends on which screen are you on.
+  If active = "sys_junk" Then                                                     'if the user is in the system junk panel, the Take action button will:
+    Message.Info("System Junk")                                                   'inform the user( TODO: backend)
+    Else If active = "rubbish" Then                                               'if the user is in the Rubbish cleaner panel, 
+      Shell "rm -rf ~/.local/share/Trash/*"                                       'cleaning the rubbish from the bin
+      rubbish_bin_module.get_size()                                               'updating the rubbish size
+      lbl_main_report.Text = "Found rubbish: " & rubbish_bin_module.rubbish_size  'updating on-display rubbish size
+      Else If active = "apt-manager" Then                                         'if the user is in the apt-get clean screen,
+        apt_module.execute                                                        'call the 'execute' function from "apt_module" module
+        Else If active = "malware" Then                                           'if the user is in the malware removal panel,
+          Message.Info("Your system seems to be protected")                       'inform the user
+          Else If active = "space_lens" Then                                      'if the user is in the Space Lens screen,
+            FBig_Files.Show                                                       'showing the BigFiles form :p
+            Else If active = "big_files" Then                                     'same as in SpaceLens
+              FBig_Files.Show                                                     '^^^^^^^^^^^^^^^^^^^^
+              Else If active = "updates" Then                                     'if the user is in Updates screen,
+                Shell "update-mgr"                                                'the program will call update-mgr from /usr/bin(only for NiceC0re based systems and pearOS)
+                Else                                                              'if the user is not in any of that situation,
+                  Message.Error("Internal application error", "OK", "Cancel")     'throw error
+  Endif                                                                           'ending the If, Else If and Else chain.
+End                                                                               'ending backend of the Universal Button.
+

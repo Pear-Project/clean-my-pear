@@ -1,0 +1,9 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,64,64)
+  Arrangement = Arrange.Fill
+  { big_files_details TextArea
+    MoveScaled(16,10,33,46)
+  }
+}

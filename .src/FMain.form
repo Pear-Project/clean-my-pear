@@ -1,0 +1,297 @@
+# Gambas Form File 3.0
+
+{ Form Form
+  MoveScaled(0,0,130,81)
+  Text = ("CleanMyPear Lite (v11.1 BETA)")
+  Icon = Picture["icon.png"]
+  Resizable = False
+  Transparent = True
+  Centered = True
+  { img_bg PictureBox
+    MoveScaled(0,0,131,82)
+    Picture = Picture["1155017-light.jpg"]
+    Mode = PictureBox.Contain
+  }
+  { sidebar Frame
+    MoveScaled(2,8,27,61)
+    Text = ("Cleaning Options")
+    { img_sys_junk PictureBox
+      MoveScaled(2,13,4,4)
+      Mouse = Mouse.Pointing
+      Picture = Picture["system-junk.png"]
+      Mode = PictureBox.Contain
+    }
+    { lbl_sys_junk Label
+      MoveScaled(7,13,18,4)
+      Mouse = Mouse.Pointing
+      Text = ("System Junk")
+    }
+    { img_rubbish PictureBox
+      MoveScaled(2,18,4,4)
+      Mouse = Mouse.Pointing
+      Picture = Picture["rubbish-clean.png"]
+      Mode = PictureBox.Contain
+    }
+    { lbl_rubbish Label
+      MoveScaled(7,18,18,4)
+      Mouse = Mouse.Pointing
+      Text = ("Rubbish Bins")
+    }
+    { img_packages PictureBox
+      MoveScaled(2,23,4,4)
+      Mouse = Mouse.Pointing
+      Picture = Picture["apt.png"]
+      Mode = PictureBox.Contain
+    }
+    { lbl_packages Label
+      MoveScaled(7,23,18,4)
+      Mouse = Mouse.Pointing
+      Text = ("Packages")
+    }
+    { img_malware PictureBox
+      MoveScaled(2,32,4,4)
+      Mouse = Mouse.Pointing
+      Picture = Picture["malware.png"]
+      Mode = PictureBox.Contain
+    }
+    { lbl_malware_remove Label
+      MoveScaled(7,32,18,4)
+      Mouse = Mouse.Pointing
+      Text = ("Malware Removal")
+    }
+    { img_space_lens PictureBox
+      MoveScaled(2,37,4,4)
+      Mouse = Mouse.Pointing
+      Picture = Picture["space-lens.png"]
+      Mode = PictureBox.Contain
+    }
+    { lbl_space_lens Label
+      MoveScaled(7,37,18,4)
+      Mouse = Mouse.Pointing
+      Text = ("Space lens")
+    }
+    { img_big_files PictureBox
+      MoveScaled(2,43,4,4)
+      Mouse = Mouse.Pointing
+      Picture = Picture["big-files.png"]
+      Mode = PictureBox.Contain
+    }
+    { lbl_big_files Label
+      MoveScaled(7,43,18,4)
+      Mouse = Mouse.Pointing
+      Text = ("Biiig files")
+    }
+    { img_updates PictureBox
+      MoveScaled(2,52,4,4)
+      Mouse = Mouse.Pointing
+      Picture = Picture["updates.png"]
+      Mode = PictureBox.Contain
+    }
+    { lbl_updates Label
+      MoveScaled(7,52,18,4)
+      Mouse = Mouse.Pointing
+      Text = ("Updates")
+    }
+    { Label1 Label
+      MoveScaled(1,8,26,3)
+      Font = Font["Bold"]
+      Foreground = &H7F7F7F&
+      Text = ("Cleanup")
+    }
+    { img_smart_scan PictureBox
+      MoveScaled(2,2,4,4)
+      Mouse = Mouse.Pointing
+      Picture = Picture["icon.png"]
+      Mode = PictureBox.Contain
+    }
+    { lbl_smart_scan Label
+      MoveScaled(7,2,18,4)
+      Mouse = Mouse.Pointing
+      Text = ("Smart Scan")
+    }
+    { Label2 Label
+      MoveScaled(1,28,26,3)
+      Font = Font["Bold"]
+      Foreground = &H7F7F7F&
+      Text = ("Protection")
+    }
+    { Label3 Label
+      MoveScaled(1,48,8,3)
+      Font = Font["Bold"]
+      Foreground = &H7F7F7F&
+      Text = ("Other")
+    }
+  }
+  { pn_welcome Panel
+    MoveScaled(45,9,63,70)
+    { lbl_welcome_alt Label
+      MoveScaled(7,48,50,6)
+      Font = Font["Bold,+2"]
+      Text = ("Start with a nice scan to your pearintosh")
+    }
+    { img_logo PictureBox
+      MoveScaled(8,0,45,45)
+      Picture = Picture["icon.png"]
+      Mode = PictureBox.Contain
+    }
+    { lbl_welcome Label
+      MoveScaled(0,43,62,6)
+      Font = Font["Bold,+7"]
+      Text = ("Welcome to CleanMyPear Lite")
+    }
+    { scan_welcome Button
+      MoveScaled(13,66,16,4)
+    }
+  }
+  { pn_smart_scan Panel
+    MoveScaled(33,5,80.8571,74.8571)
+    Visible = False
+    { Spinner2 Spinner
+      MoveScaled(36,51,4,4)
+    }
+    { Spinner1 Spinner
+      MoveScaled(6,51,4,4)
+    }
+    { report_disk Label
+      MoveScaled(2,49,12,4)
+      Visible = False
+      Font = Font["Bold,+1"]
+      Foreground = Color.SelectedBackground
+      Alignment = Align.Center
+      Text = ("Cleanup")
+    }
+    { lbl_title_alt3 Label
+      MoveScaled(33,45,12,7)
+      Font = Font["+1"]
+      Text = ("Protection")
+    }
+    { report_protection Label
+      MoveScaled(32,49,12,4)
+      Visible = False
+      Font = Font["Bold,+1"]
+      Foreground = Color.DarkGreen
+      Alignment = Align.Center
+      Text = ("Cleanup")
+    }
+    { report_speed Label
+      MoveScaled(65,49,12,4)
+      Visible = False
+      Font = Font["Bold,+1"]
+      Foreground = Color.DarkGreen
+      Alignment = Align.Center
+      Text = ("Cleanup")
+    }
+    { lbl_title_alt4 Label
+      MoveScaled(68,46,8,5)
+      Font = Font["+1"]
+      Text = ("Speed")
+    }
+    { lbl_title_alt2 Label
+      MoveScaled(4,45,12,6)
+      Font = Font["+1"]
+      Text = ("Cleanup")
+    }
+    { img_disk PictureBox
+      MoveScaled(0,24,18,18)
+      Picture = Picture["disk.png"]
+      Alignment = Align.Center
+      Mode = PictureBox.Contain
+    }
+    { img_disk3 PictureBox
+      MoveScaled(62,25,18,18)
+      Picture = Picture["speed.png"]
+      Alignment = Align.Center
+      Mode = PictureBox.Contain
+    }
+    { lbl_title_alt Label
+      MoveScaled(15,4,43,6)
+      Font = Font["+1"]
+      Text = ("This shouldn't take much time. Be patient")
+    }
+    { lbl_looking Label
+      MoveScaled(23,0,31,6)
+      Font = Font["Bold,+5"]
+      Text = ("Looking at it ") & "..."
+    }
+    { lbl_title_alt5 Label
+      MoveScaled(44,70,12,4)
+      Font = Font["Bold,-1"]
+      Text = ("21.6 GB")
+    }
+    { img_disk2 PictureBox
+      MoveScaled(29,24,18,18)
+      Picture = Picture["secure.png"]
+      Alignment = Align.Center
+      Mode = PictureBox.Contain
+    }
+    { Spinner3 Spinner
+      MoveScaled(69,51,4,4)
+    }
+  }
+  { pn_running Panel
+    MoveScaled(33,7,88.8571,46.8571)
+    #Translate = False
+    Visible = False
+    { lbl_title_alt6 Label
+      MoveScaled(-18,-17,62,6)
+      Font = Font["+1"]
+      Text = ("Sample Descriptions goes Here")
+    }
+    { PictureBox3 PictureBox
+      MoveScaled(4,29,6,6)
+      Alignment = Align.Center
+      Mode = PictureBox.Contain
+    }
+    { Separator1 Separator
+      MoveScaled(0,36,55,3)
+    }
+    { btn_take_action Button
+      MoveScaled(1,41,16,4)
+      Text = ("Take action")
+    }
+    { spn_loading Spinner
+      MoveScaled(19,41,3,4)
+    }
+    { lbl_main_report Label
+      MoveScaled(22,40,43,6)
+      Font = Font["+1"]
+      Foreground = Color.DarkRoyal
+      Text = ("You need to scan first")
+    }
+    { lbl_details2 Label
+      MoveScaled(14,31,62,6)
+      Font = Font["+1"]
+      Text = ("Sample Descriptions goes Here")
+    }
+    { lbl_title_details2 Label
+      MoveScaled(14,27,62,6)
+      Font = Font["Bold,+1"]
+      Text = ("Sample Descriptions goes Here")
+    }
+    { lbl_details Label
+      MoveScaled(14,18,62,6)
+      Font = Font["+1"]
+      Text = ("Sample Descriptions goes Here")
+    }
+    { lbl_title_details Label
+      MoveScaled(14,14,62,6)
+      Font = Font["Bold,+1"]
+      Text = ("Sample Descriptions goes Here")
+    }
+    { PictureBox1 PictureBox
+      MoveScaled(58,7,30,30)
+      Alignment = Align.Center
+      Mode = PictureBox.Contain
+    }
+    { PictureBox2 PictureBox
+      MoveScaled(4,16,6,6)
+      Alignment = Align.Center
+      Mode = PictureBox.Contain
+    }
+    { lbl_title Label
+      MoveScaled(1,0,62,6)
+      Font = Font["Bold,+5"]
+      Text = ("Sample title goes here")
+    }
+  }
+}
